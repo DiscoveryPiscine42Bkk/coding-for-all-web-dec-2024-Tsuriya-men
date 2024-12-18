@@ -1,0 +1,27 @@
+/* Styling for the table */
+table {
+    width: 50%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border: 2px solid #333; /* Dark border for the table */
+}
+
+/* General table cell styling */
+td {
+    height: 100px;
+    text-align: center;
+    font-size: 1.5em;
+    font-family: Arial, sans-serif;
+    color: black;
+    border: 1px solid #999; /* Light borders for cells */
+}
+
+/* Specific style for the first cell */
+.first-cell {
+    background-color: #64c5d7; /* Cyan */
+}
+
+/* Specific style for the second cell */
+.second-cell {
+    background-color: #fadee1; /* Pink */
+}
