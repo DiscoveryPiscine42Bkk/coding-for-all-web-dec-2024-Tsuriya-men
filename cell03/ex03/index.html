@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link href="todo.js">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #ft_list {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            min-height: 100px;
+            background-color: #f9f9f9;
+        }
+        .todo {
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #e3f2fd;
+            border: 1px solid #90caf9;
+            cursor: pointer;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1565c0;
+        }
+    </style>
+</head>
+<body>
+    <button id="new">New</button>
+    <div id="ft_list"></div>
+
+    <script>
+        const ftList = document.getElementById('ft_list');
+        const newButton = document.getElementById('new');
+
+        // Load tasks from cookies on page load
+        window.onload = function () {
+            const savedTasks = getCookie('tasks');
+            if (savedTasks) {
+                const tasks = JSON.parse(savedTasks);
+                tasks.forEach(task => addTask(task));
+            }
+        };
+
+        // Add a new task
+        newButton.addEventListener('click', () => {
+            const task = prompt('Enter a new task:');
+            if (task) {
+                addTask(task);
+                saveTasksToCookies();
+            }
+        });
+
+        // Add task to the DOM
+        function addTask(taskText) {
+            const taskDiv = document.createElement('div');
+            taskDiv.className = 'todo';
+            taskDiv.textContent = taskText;
+            taskDiv.addEventListener('click', () => removeTask(taskDiv));
+            ftList.prepend(taskDiv);
+        }
+
+        // Remove a task
+        function removeTask(taskDiv) {
+            const confirmDelete = confirm('Do you want to remove this task?');
+            if (confirmDelete) {
+                taskDiv.remove();
+                saveTasksToCookies();
+            }
+        }
+
+        // Save tasks to cookies
+        function saveTasksToCookies() {
+            const tasks = Array.from(ftList.children).map(task => task.textContent);
+            document.cookie = `tasks=${JSON.stringify(tasks)};path=/;`; // Save as JSON
+        }
+
+        // Get cookies
+        function getCookie(name) {
+            const cookies = document.cookie.split('; ');
+            for (const cookie of cookies) {
+                const [key, value] = cookie.split('=');
+                if (key === name) {
+                    return decodeURIComponent(value);
+                }
+            }
+            return null;
+        }
+    </script>
+</body>
+</html>
