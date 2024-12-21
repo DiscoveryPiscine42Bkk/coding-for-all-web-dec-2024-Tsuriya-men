@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body> 
+    <!-- แบบฟอร์มเครื่องคิดเลข -->
+    <input type="text" id="leftOperand" placeholder="Left number">
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <input type="text" id="rightOperand" placeholder="Right number">
+    <button id="calculateButton">Try me!</button>
+    
+    <script>
+        $(document).ready(function() {
+            // Click event
+            $('#calculateButton').click(function() {
+                const leftOperand = $('#leftOperand').val();
+                const rightOperand = $('#rightOperand').val();
+                const operator = $('#operator').val();
+
+                //เป็น positive int
+                if (!isPositiveInteger(leftOperand)|| !isPositiveInteger(rightOperand)) {
+                    alert("Error :(");
+                    console.error("Error :(");
+                    return;
+                }
+
+                if ((leftOperand) > 2147483647||(rightOperand) > 2147483647) {
+                    alert("Error :(");
+                    console.error("Error :(");
+                    return;
+                }
+
+                const num1 = parseInt(leftOperand);
+                const num2 = parseInt(rightOperand);
+                let result;
+
+                try {
+                    switch (operator) {
+                        case '+': result = num1 + num2; break;
+                        case '-': result = num1 - num2; break;
+                        case '*': result = num1 * num2; break;
+                        case '/':
+                        case '%':
+                            if (num2 === 0) {
+                                alert("It's over 9000!");
+                                console.error("It's over 9000!");
+                                return;
+                            }
+                            result = operator === '/' ? num1 / num2 : num1 % num2;
+                    }
+
+                    alert(`Result: ${result}`);
+                    console.log(`Result: ${result}`);
+                } catch (e) {
+                    alert("Error :(");
+                    console.error("Error :(");
+                }
+            });
+
+            //ตรวจ positive integer input
+            function isPositiveInteger(value) {
+                return /^\d+$/.test(value);
+            }
+
+            //ทุก 30 วิ
+            setInterval(function() {
+                alert("Please, use me...");
+            }, 30000);
+        });
+    </script>
+</body>
+</html>

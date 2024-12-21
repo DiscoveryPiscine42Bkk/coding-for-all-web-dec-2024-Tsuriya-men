@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Background Color</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href = "backgroound.css">
+</head>
+<body>
+
+    <button id="clickMeButton">Click Me bro</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#clickMeButton').click(function() {
+                // สุ่มสี
+                var randomColor = getRandomColor();
+                // รับสีีจาก getrandomcolor
+                $('body').css('background-color', randomColor);
+            });
+
+            //เจนเลข #
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+        });
+    </script>
+
+</body>
+</html>
