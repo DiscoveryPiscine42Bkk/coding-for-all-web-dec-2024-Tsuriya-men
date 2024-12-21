@@ -1,0 +1,170 @@
+
+  body {
+    margin: 0;
+    font-family: "Fahkwang", serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    min-height: 100vh;
+    background: url('laptop.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 60px; /* Adjust based on the height of your navbar */
+    font-family: "Fahkwang" , 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  nav {
+    position: fixed; /* Make the navbar fixed at the top */
+    top: 0; /* Position it at the very top */
+    left: 0;
+    width: 100%; /* Ensure it spans the full width of the page */
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+    z-index: 1000; /* Ensure the navbar is on top of other elements */
+}
+  nav ul{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  nav li{
+    height: 50px;
+  }
+  nav a{
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: black;
+  }
+
+  nav li:first-child{
+    margin-right: auto;
+  }
+  .sidebar{
+    position: fixed;
+    top: 0; 
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: rgba(255, 255, 255);
+    backdrop-filter: blur(12px);                
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.5);
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .bg-img{
+    background-image: url(https://www.it.kmitl.ac.th/wp-content/themes/itkmitl2017wp/img/life/life-13.jpg);
+    background-image: rgba(255, 255, 255, 0.2) ;
+    background-size: 100vw 100vh;
+    backdrop-filter: brightness(50%) blur(10px);
+  }
+  .home{
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    color: white;
+}
+.button-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    flex-wrap: wrap; /* Ensures buttons wrap if needed */
+    height: 100%; /* Use full height of the container */
+    padding: 20px; /* Optional spacing around buttons */
+    gap: 20px; /* Space between buttons */
+}
+  
+  /* Image Button Styles */
+  .img-button img {
+    width: 100%;
+    max-width: 300px; /* Adjust as needed */
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px; /* Optional for rounded corners */
+  }
+  
+  /* Hover Effect */
+  .img-button img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  .home-content h1 {
+    font-size: 3rem; /* Larger font size for the main heading */
+    font-weight: bold;
+    margin-bottom: 7px;
+    color:  rgb(22, 22, 220);
+}
+
+.home-content h3 {
+    font-size: 2rem; /* Larger font size for the subheading */
+    margin-bottom: 10px;
+    color: #ffa500;
+}
+
+.home-content a {
+    font-size: 1.5rem; /* Larger font size for the descriptive text */
+    display: flex; /* Ensures each `<a>` appears on a new line */
+    color: white; /* Optional: to ensure good contrast */
+    margin-bottom: 5px; /* Adds spacing between lines */
+}
+.content-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.content-container img {
+  flex-shrink: 0; /* Prevent the image from shrinking */
+  border-radius: 10px;
+}
+
+.text-content {
+  flex-grow: 1;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #fff;
+}
+.button-container {
+    display: flex;
+    justify-content: center; /* Center the images */
+    gap: 20px; /* Add spacing between images */
+    margin-top: 20px;
+}
+
+.img-wrapper {
+    text-align: center; /* Center the text under the image */
+    max-width: 200px; /* Optional: set a max width for the image wrapper */
+}
+
+.img-button img {
+    width: 100%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.img-button img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.img-text {
+    margin-top: 10px; /* Space between the image and text */
+    font-size: 14px; /* Adjust font size */
+    color: #ffffff; /* Text color */
+}
